@@ -60,6 +60,7 @@ public class MVVMViewLoader {
 		} catch (final IOException ex) {
 			LOG.error("Error loading FXML :", ex);
 		}
+
 		final MVVMViewTuple controllerTuple = new MVVMViewTuple(
 				(MVVMView<?>) fxmlLoader.getController(), view);
 		return controllerTuple;
