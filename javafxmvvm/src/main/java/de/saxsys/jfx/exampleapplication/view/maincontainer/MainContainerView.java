@@ -17,17 +17,21 @@ import de.saxsys.jfx.mvvm.base.MVVMView;
 public class MainContainerView extends MVVMView<MainContainerViewModel> {
 
 	@FXML
-	// fx:id="personPickView"
+	// Injection of the login which is declared in the FXML File
 	private StackPane loginView; // Value injected by FXMLLoader
 
 	@FXML
+	// Inject the Code behind instance of the loginView by using the
+	// nameconvention ...Controller
 	private PersonLoginView loginViewController;
 
 	@FXML
-	// fx:id="welcomeArea"
+	// Injection of the login which is declared in the FXML File
 	private StackPane welcomeView; // Value injected by FXMLLoader
 
 	@FXML
+	// Inject the Code behind instance of the welcomeView by using the
+	// nameconvention ...Controller
 	private PersonWelcomeView welcomeViewController;
 
 	@Override
@@ -42,15 +46,19 @@ public class MainContainerView extends MVVMView<MainContainerViewModel> {
 	@Override
 	protected void afterViewModelInitialization() {
 
+		// Create the view model for the person login view
 		final PersonLoginViewModel personLoginViewModel = new PersonLoginViewModel();
 
 		loginViewController.setViewModel(personLoginViewModel);
 
+		// When the login button of the loginView, the pickedPersonProperty is
+		// going to have the index of the selected person
 		personLoginViewModel.pickedPersonProperty().addListener(
 				new ChangeListener<Number>() {
 					@Override
 					public void changed(ObservableValue<? extends Number> arg0,
 							Number oldValue, Number newValue) {
+
 						PersonWelcomeViewModel personWelcomeViewModel = new PersonWelcomeViewModel(
 								newValue.intValue());
 						welcomeViewController

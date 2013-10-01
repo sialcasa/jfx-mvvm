@@ -10,6 +10,12 @@ import de.saxsys.jfx.mvvm.viewloader.MVVMViewLoader;
 import de.saxsys.jfx.mvvm.viewloader.MVVMViewNames;
 import de.saxsys.jfx.mvvm.viewloader.MVVMViewTuple;
 
+/**
+ * Entry point of the application.
+ * 
+ * @author sialcasa
+ * 
+ */
 public class Starter extends Application {
 
 	public static void main(final String[] args) {
@@ -28,9 +34,8 @@ public class Starter extends Application {
 		// Locate View for loaded FXML file
 		final Parent view = tuple.getView();
 
-		// Create ViewModel
+		// Create and set ViewModel
 		final MainContainerViewModel personLoginViewModel = new MainContainerViewModel();
-
 		personLoginView.setViewModel(personLoginViewModel);
 
 		final Scene scene = new Scene(view);

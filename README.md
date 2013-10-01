@@ -3,6 +3,11 @@ jfx-mvvm
 
 An example how to implement a small project with the MVVM pattern.
 
+**This project is not licenced. I'm developing a complete Application Framework to implement MVVM with JavaFX which is going to be released as open source.**
+
+
+[Link to mvvmFX](https://github.com/sialcasa/mvvmFX)
+
 **If you want to run it, you have to resolve the JavaFX dependency by your self.**
 
 ##Parts of the project##
