@@ -57,11 +57,11 @@ public abstract class MVVMView<ViewModel extends MVVMViewModel> implements
 	/**
 	 * This method is called before the viewmodel is going to be set.
 	 */
-	public abstract void beforeViewModelInitialization();
+	protected abstract void beforeViewModelInitialization();
 
 	/**
 	 * This method is called after the viewmodel was set.
 	 */
-	public abstract void afterViewModelInitialization();
+	protected abstract void afterViewModelInitialization();
 
 }

@@ -22,7 +22,8 @@ package de.saxsys.jfx.mvvm.viewloader;
 public enum MVVMViewNames {
 	PERSONWELCOME(
 			"/de/saxsys/jfx/exampleapplication/view/personwelcome/PersonWelcomeView.fxml"), PERSONLOGIN(
-			"/de/saxsys/jfx/exampleapplication/view/personlogin/PersonLoginView.fxml");
+			"/de/saxsys/jfx/exampleapplication/view/personlogin/PersonLoginView.fxml"), MAINCONTAINER(
+			"/de/saxsys/jfx/exampleapplication/view/maincontainer/MainContainerView.fxml");
 
 	private String resource;
 

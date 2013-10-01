@@ -5,7 +5,8 @@
 <?import javafx.scene.control.*?>
 <?import javafx.scene.layout.*?>
 <?import javafx.scene.layout.StackPane?>
-
+<?import de.saxsys.jfx.exampleapplication.viewmodel.personwelcome.PersonWelcomeViewModel?>
+    
 <StackPane style="-fx-background-color:derive(lightgray,80%);" xmlns:fx="http://javafx.com/fxml" fx:controller="de.saxsys.jfx.exampleapplication.view.personwelcome.PersonWelcomeView">
   <!-- TODO Add Nodes -->
   <children>
