@@ -9,28 +9,21 @@ import de.saxsys.jfx.exampleapplication.viewmodel.personwelcome.PersonWelcomeVie
 import de.saxsys.jfx.mvvm.base.MVVMView;
 
 /**
- * Code behind the fxml for visualization of the PersonWelcomeViewModel. After
- * the {@link PersonWelcomeViewModel} is set, the view binds to the
- * {@link PersonWelcomeViewModel}.
+ * Code behind the fxml for visualization of the PersonWelcomeViewModel. The
+ * view binds to the property of the {@link PersonWelcomeViewModel}.
  * 
  * @author alexander.casall
  */
 public class PersonWelcomeView extends MVVMView<PersonWelcomeViewModel> {
 
 	@FXML
+	// Injection of the label which is declared in the FXML File and shows the
+	// welcome message
 	private Label welcomeLabel;
 
 	@Override
 	public void initialize(final URL arg0, final ResourceBundle arg1) {
-	}
-
-	@Override
-	public void beforeViewModelInitialization() {
-
-	}
-
-	@Override
-	public void afterViewModelInitialization() {
-		welcomeLabel.textProperty().bind(viewModel.welcomeStringProperty());
+		welcomeLabel.textProperty()
+				.bind(getViewModel().welcomeStringProperty());
 	}
 }

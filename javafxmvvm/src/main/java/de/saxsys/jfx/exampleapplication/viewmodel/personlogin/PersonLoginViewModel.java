@@ -7,6 +7,9 @@ import javafx.beans.property.ListProperty;
 import javafx.beans.property.SimpleIntegerProperty;
 import javafx.beans.property.SimpleListProperty;
 import javafx.collections.FXCollections;
+
+import com.google.inject.Inject;
+
 import de.saxsys.jfx.exampleapplication.model.Person;
 import de.saxsys.jfx.exampleapplication.model.Repository;
 import de.saxsys.jfx.mvvm.base.MVVMViewModel;
@@ -23,17 +26,18 @@ import de.saxsys.jfx.viewmodel.personlogin.PersonLoginViewModelTest;
  */
 public class PersonLoginViewModel implements MVVMViewModel {
 
+	@Inject
+	private Repository repository;
+
+	// Properties which are used by the view.
 	private final ListProperty<String> persons = new SimpleListProperty<>(
 			FXCollections.<String> observableArrayList());
 	private IntegerProperty pickedPerson = new SimpleIntegerProperty(-1);
 
-	public PersonLoginViewModel() {
-		initPersons();
-	}
-
+	// Called as Post Construct
+	@Inject
 	private void initPersons() {
-		final List<Person> personsInRepo = Repository.getInstance()
-				.getPersons();
+		final List<Person> personsInRepo = repository.getPersons();
 		for (final Person person : personsInRepo) {
 			persons.add(person.getFirstName() + " " + person.getLastName());
 		}

@@ -3,6 +3,9 @@ package de.saxsys.jfx.exampleapplication.viewmodel.personwelcome;
 import javafx.beans.binding.Bindings;
 import javafx.beans.property.SimpleStringProperty;
 import javafx.beans.property.StringProperty;
+
+import com.google.inject.Inject;
+
 import de.saxsys.jfx.exampleapplication.model.Person;
 import de.saxsys.jfx.exampleapplication.model.Repository;
 import de.saxsys.jfx.mvvm.base.MVVMViewModel;
@@ -18,19 +21,17 @@ import de.saxsys.jfx.viewmodel.personwelcome.PersonWelcomeViewModelTest;
  */
 public class PersonWelcomeViewModel implements MVVMViewModel {
 
+	@Inject
+	private Repository repository;
+
+	// Properties which are used by the view.
 	private final StringProperty welcomeString = new SimpleStringProperty();
 
 	/**
-	 * Create a {@link PersonWelcomeViewModel} for a given id of a person.
-	 * 
-	 * @param personId
-	 *            for the screen
+	 * Create a {@link PersonWelcomeViewModel}.
 	 */
-	public PersonWelcomeViewModel(final int personId) {
-		final Person person = Repository.getInstance().getPersonById(personId);
-		welcomeString.bind(Bindings.concat("Willkommen Herr ",
-				person.lastNameProperty(), ", oder wollen Sie ",
-				person.firstNameProperty(), " genannt werden?"));
+	public PersonWelcomeViewModel() {
+
 	}
 
 	/**
@@ -40,5 +41,15 @@ public class PersonWelcomeViewModel implements MVVMViewModel {
 	 */
 	public StringProperty welcomeStringProperty() {
 		return welcomeString;
+	}
+
+	/**
+	 * Set Person id for the screen * @param personId for the screen
+	 */
+	public void setPersonId(int personId) {
+		final Person person = repository.getPersonById(personId);
+		welcomeString.bind(Bindings.concat("Willkommen Herr ",
+				person.lastNameProperty(), ", oder wollen Sie ",
+				person.firstNameProperty(), " genannt werden?"));
 	}
 }

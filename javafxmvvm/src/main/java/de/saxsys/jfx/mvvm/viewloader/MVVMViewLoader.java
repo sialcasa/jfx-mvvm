@@ -18,11 +18,14 @@ package de.saxsys.jfx.mvvm.viewloader;
 import java.io.IOException;
 import java.net.URL;
 
-import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
 
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
+
+import com.cathive.fx.guice.GuiceFXMLLoader;
+import com.cathive.fx.guice.GuiceFXMLLoader.Result;
+import com.google.inject.Inject;
 
 import de.saxsys.jfx.mvvm.base.MVVMView;
 
@@ -32,6 +35,10 @@ import de.saxsys.jfx.mvvm.base.MVVMView;
  * @author alexander.casall
  */
 public class MVVMViewLoader {
+
+	// Using GuiceFXMLLoader instead of FXMLLoader to provide Guice support.
+	@Inject
+	private GuiceFXMLLoader fxmlLoader;
 
 	private static final Logger LOG = LoggerFactory
 			.getLogger(MVVMViewLoader.class);
@@ -52,17 +59,15 @@ public class MVVMViewLoader {
 			return null;
 		}
 
-		final FXMLLoader fxmlLoader = new FXMLLoader();
-		fxmlLoader.setLocation(location);
-		Parent view = null;
+		Result view = null;
 		try {
-			view = (Parent) fxmlLoader.load(location.openStream());
+			view = (Result) fxmlLoader.load(location);
 		} catch (final IOException ex) {
 			LOG.error("Error loading FXML :", ex);
 		}
 
 		final MVVMViewTuple controllerTuple = new MVVMViewTuple(
-				(MVVMView<?>) fxmlLoader.getController(), view);
+				(MVVMView<?>) view.getController(), (Parent) view.getRoot());
 		return controllerTuple;
 	}
 }

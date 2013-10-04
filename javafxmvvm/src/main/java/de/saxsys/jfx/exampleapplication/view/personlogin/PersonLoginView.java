@@ -6,35 +6,23 @@ import java.util.ResourceBundle;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.scene.control.ChoiceBox;
-import javafx.scene.layout.VBox;
 import de.saxsys.jfx.exampleapplication.viewmodel.personlogin.PersonLoginViewModel;
 import de.saxsys.jfx.mvvm.base.MVVMView;
 
 /**
- * Code behind the fxml for visualization of the {@link PersonLoginView}. After
- * the {@link PersonLoginViewModel} is set, the view binds to the
- * {@link PersonLoginViewModel}.
+ * Code behind the fxml for visualization of the {@link PersonLoginView}. The
+ * view binds to the properties of the {@link PersonLoginViewModel}.
  * 
  * @author alexander.casall
  */
 public class PersonLoginView extends MVVMView<PersonLoginViewModel> {
 
 	@FXML
+	// Injection of the person choiceBox which is declared in the FXML File
 	private ChoiceBox<String> personsChoiceBox;
-
-	@FXML
-	private VBox layoutVbox;
 
 	@Override
 	public void initialize(final URL arg0, final ResourceBundle arg1) {
-	}
-
-	@Override
-	public void beforeViewModelInitialization() {
-	}
-
-	@Override
-	public void afterViewModelInitialization() {
 		personsChoiceBox.itemsProperty().bind(getViewModel().personsProperty());
 	}
 
