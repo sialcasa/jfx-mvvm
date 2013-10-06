@@ -6,11 +6,11 @@ import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.stage.Stage;
 
-import com.cathive.fx.guice.GuiceApplication;
 import com.google.inject.Inject;
 import com.google.inject.Module;
 
 import de.saxsys.jfx.exampleapplication.view.maincontainer.MainContainerView;
+import de.saxsys.jfx.mvvm.MVVMApplication;
 import de.saxsys.jfx.mvvm.viewloader.ViewLoader;
 import de.saxsys.jfx.mvvm.viewloader.ViewTuple;
 
@@ -20,7 +20,7 @@ import de.saxsys.jfx.mvvm.viewloader.ViewTuple;
  * @author sialcasa
  * 
  */
-public class Starter extends GuiceApplication {
+public class Starter extends MVVMApplication {
 
 	// Get the MVVM View Loader
 	@Inject
@@ -43,8 +43,7 @@ public class Starter extends GuiceApplication {
 	}
 
 	@Override
-	public void init(List<Module> arg0) throws Exception {
-		// TODO Auto-generated method stub
+	public void initGuiceModules(List<Module> modules) throws Exception {
 
 	}
 
