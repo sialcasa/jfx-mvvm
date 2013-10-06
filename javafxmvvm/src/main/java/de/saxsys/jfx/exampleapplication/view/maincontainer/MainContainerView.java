@@ -9,7 +9,7 @@ import javafx.fxml.FXML;
 import javafx.scene.layout.StackPane;
 import de.saxsys.jfx.exampleapplication.view.personlogin.PersonLoginView;
 import de.saxsys.jfx.exampleapplication.view.personwelcome.PersonWelcomeView;
-import de.saxsys.jfx.mvvm.base.MVVMViewWithoutViewModel;
+import de.saxsys.jfx.mvvm.base.view.ViewWithoutViewModel;
 
 /**
  * Main View which creates the necessary subviews, and manages them. Does not
@@ -17,7 +17,7 @@ import de.saxsys.jfx.mvvm.base.MVVMViewWithoutViewModel;
  * look on the FXML file to see, how to include different views into a
  * MasterView.
  */
-public class MainContainerView extends MVVMViewWithoutViewModel {
+public class MainContainerView extends ViewWithoutViewModel {
 
 	@FXML
 	// Injection of the login which is declared in the FXML File

@@ -6,7 +6,7 @@ import java.util.ResourceBundle;
 import javafx.fxml.FXML;
 import javafx.scene.control.Label;
 import de.saxsys.jfx.exampleapplication.viewmodel.personwelcome.PersonWelcomeViewModel;
-import de.saxsys.jfx.mvvm.base.MVVMView;
+import de.saxsys.jfx.mvvm.base.view.View;
 
 /**
  * Code behind the fxml for visualization of the PersonWelcomeViewModel. The
@@ -14,7 +14,7 @@ import de.saxsys.jfx.mvvm.base.MVVMView;
  * 
  * @author alexander.casall
  */
-public class PersonWelcomeView extends MVVMView<PersonWelcomeViewModel> {
+public class PersonWelcomeView extends View<PersonWelcomeViewModel> {
 
 	@FXML
 	// Injection of the label which is declared in the FXML File and shows the

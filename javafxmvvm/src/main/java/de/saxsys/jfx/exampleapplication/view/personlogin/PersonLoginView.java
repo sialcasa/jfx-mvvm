@@ -7,7 +7,7 @@ import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.scene.control.ChoiceBox;
 import de.saxsys.jfx.exampleapplication.viewmodel.personlogin.PersonLoginViewModel;
-import de.saxsys.jfx.mvvm.base.MVVMView;
+import de.saxsys.jfx.mvvm.base.view.View;
 
 /**
  * Code behind the fxml for visualization of the {@link PersonLoginView}. The
@@ -15,7 +15,7 @@ import de.saxsys.jfx.mvvm.base.MVVMView;
  * 
  * @author alexander.casall
  */
-public class PersonLoginView extends MVVMView<PersonLoginViewModel> {
+public class PersonLoginView extends View<PersonLoginViewModel> {
 
 	@FXML
 	// Injection of the person choiceBox which is declared in the FXML File

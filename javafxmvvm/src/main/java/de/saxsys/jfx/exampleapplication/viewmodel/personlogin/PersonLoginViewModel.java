@@ -12,7 +12,7 @@ import com.google.inject.Inject;
 
 import de.saxsys.jfx.exampleapplication.model.Person;
 import de.saxsys.jfx.exampleapplication.model.Repository;
-import de.saxsys.jfx.mvvm.base.MVVMViewModel;
+import de.saxsys.jfx.mvvm.base.viewmodel.ViewModel;
 import de.saxsys.jfx.viewmodel.personlogin.PersonLoginViewModelTest;
 
 /**
@@ -24,7 +24,7 @@ import de.saxsys.jfx.viewmodel.personlogin.PersonLoginViewModelTest;
  * @author alexander.casall
  * 
  */
-public class PersonLoginViewModel implements MVVMViewModel {
+public class PersonLoginViewModel implements ViewModel {
 
 	@Inject
 	private Repository repository;

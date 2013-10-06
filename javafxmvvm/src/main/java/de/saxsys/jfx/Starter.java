@@ -10,9 +10,9 @@ import com.cathive.fx.guice.GuiceApplication;
 import com.google.inject.Inject;
 import com.google.inject.Module;
 
-import de.saxsys.jfx.mvvm.viewloader.MVVMViewLoader;
-import de.saxsys.jfx.mvvm.viewloader.MVVMViewNames;
-import de.saxsys.jfx.mvvm.viewloader.MVVMViewTuple;
+import de.saxsys.jfx.exampleapplication.view.maincontainer.MainContainerView;
+import de.saxsys.jfx.mvvm.viewloader.ViewLoader;
+import de.saxsys.jfx.mvvm.viewloader.ViewTuple;
 
 /**
  * Entry point of the application.
@@ -24,7 +24,7 @@ public class Starter extends GuiceApplication {
 
 	// Get the MVVM View Loader
 	@Inject
-	private MVVMViewLoader viewLoader;
+	private ViewLoader viewLoader;
 
 	public static void main(final String[] args) {
 		launch(args);
@@ -32,9 +32,8 @@ public class Starter extends GuiceApplication {
 
 	@Override
 	public void start(final Stage stage) throws Exception {
-		final MVVMViewTuple tuple = viewLoader
-				.loadViewTuple(MVVMViewNames.MAINCONTAINER.getResource());
-
+		final ViewTuple tuple = viewLoader
+				.loadViewTuple(MainContainerView.class);
 		// Locate View for loaded FXML file
 		final Parent view = tuple.getView();
 
