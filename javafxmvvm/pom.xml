@@ -21,15 +21,6 @@
 	</repositories>
 
 	<dependencies>
-		<!-- You have to resolve the dependency by yourself. Maybe like this: <dependency> 
-			<groupId>com.oracle</groupId> <artifactId>javafx</artifactId> <version>2.2.3</version> 
-			<scope>system</scope> <systemPath>${project.basedir}/lib/jfxrt.jar</systemPath> 
-			</dependency> -->
-		<dependency>
-			<groupId>com.oracle</groupId>
-			<artifactId>javafx</artifactId>
-			<version>2.2</version>
-		</dependency>
 		<dependency>
 			<groupId>junit</groupId>
 			<artifactId>junit</artifactId>
