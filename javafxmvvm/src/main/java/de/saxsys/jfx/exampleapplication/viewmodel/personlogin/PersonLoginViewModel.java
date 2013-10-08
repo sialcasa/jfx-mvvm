@@ -26,17 +26,13 @@ import de.saxsys.jfx.viewmodel.personlogin.PersonLoginViewModelTest;
  */
 public class PersonLoginViewModel implements ViewModel {
 
-	@Inject
-	private Repository repository;
-
 	// Properties which are used by the view.
 	private final ListProperty<String> persons = new SimpleListProperty<>(
 			FXCollections.<String> observableArrayList());
 	private IntegerProperty pickedPerson = new SimpleIntegerProperty(-1);
 
-	// Called as Post Construct
 	@Inject
-	private void initPersons() {
+	public PersonLoginViewModel(Repository repository) {
 		final List<Person> personsInRepo = repository.getPersons();
 		for (final Person person : personsInRepo) {
 			persons.add(person.getFirstName() + " " + person.getLastName());
