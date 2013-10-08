@@ -21,7 +21,6 @@ import de.saxsys.jfx.viewmodel.personwelcome.PersonWelcomeViewModelTest;
  */
 public class PersonWelcomeViewModel implements MVVMViewModel {
 
-	@Inject
 	private Repository repository;
 
 	// Properties which are used by the view.
@@ -29,9 +28,13 @@ public class PersonWelcomeViewModel implements MVVMViewModel {
 
 	/**
 	 * Create a {@link PersonWelcomeViewModel}.
+	 * 
+	 * @param repository
+	 *            repo which is used
 	 */
-	public PersonWelcomeViewModel() {
-
+	@Inject
+	public PersonWelcomeViewModel(Repository repository) {
+		this.repository = repository;
 	}
 
 	/**
