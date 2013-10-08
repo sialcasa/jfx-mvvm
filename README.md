@@ -1,14 +1,16 @@
 jfx-mvvm
 ========
 
-An example how to implement a small project with the MVVM pattern. Guice is used in addition to provide a more simple architecture.
+An example how to implement a small project with the MVVM pattern. 
 
-**This project is not licenced. I'm developing a complete Application Framework to implement MVVM with JavaFX which is going to be released as open source.**
+This example uses my open source library [mvvmFX](https://github.com/sialcasa/mvvmFX) which is currently in development. It provides following features:
 
+- Guice Support
+- Custom FXML Loader
+- MVVM Base Implementations
+- Notification Mechanism
 
-[Link to mvvmFX](https://github.com/sialcasa/mvvmFX)
-
-**If you want to run it, you have to resolve the JavaFX dependency by your self.**
+**If you want to run it, you have to set the propper JAVA_HOME that the JavaFX dependency can be resolved.**
 
 ##Parts of the project##
 
@@ -23,14 +25,13 @@ Contains an application which has the following flow:
 The packages are divided into 
 
 - Model
+	- __Person.java__ Bean for a Person
+	- __Repository.java__ Service Class for __Person.java__
 - ViewModel
-- View
+	- __PersonLoginViewModel.java__ creates the information which should be displayed by __PersonLoginView.java__ / __PersonLoginView.fxml__
+	- __PersonWelcomeViewModel.java__ creates the information which should be displayed by __PersonWelcomeView.java__ / __PersonWelcomeView.fxml__
+- View 
+	- __PersonLoginView.java__ and __PersonLoginView.fxml__
+	- __PersonWelcomeView.java__ and __PersonWelcomeView.fxml__
 
-For every *ViewModel* is a testclass in the testpackage.
-
-#### de.saxsys.jfx.mvvm ####
-
-Just have a look into this package if you want to have a deep dive. This is going to be open sourced ([Link to mvvmFX](https://github.com/sialcasa/mvvmFX))
-
-Includes base implementations for 
-the mvvm pattern. In addition a Loader is implemented to load the FXML Files and get the referenced code-behind part.
+For every __ViewModel__ is a testclass in the testpackage to give an impression how to develop testdriven.
