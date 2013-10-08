@@ -24,7 +24,9 @@ import de.saxsys.jfx.viewmodel.personlogin.PersonLoginViewModelTest;
  * @author alexander.casall
  * 
  */
+
 public class PersonLoginViewModel implements ViewModel {
+
 
 	// Properties which are used by the view.
 	private final ListProperty<String> persons = new SimpleListProperty<>(
